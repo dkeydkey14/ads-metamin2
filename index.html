@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TUỔI TRẺ - SỰ KIỆN MỚI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow">
+  <title>⏳ Đang kiểm tra kết nối...</title>
+
+  <!-- Dynamic Security Favicon (SVG data URI - zero network delay) -->
+  <link id="dynamicFavicon" rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'%3E%3Cpath d='M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z'/%3E%3C/svg%3E">
 
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '28262063873482890');
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1089713710278443');
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=28262063873482890&ev=PageView&noscript=1" alt="">
+      src="https://www.facebook.com/tr?id=1089713710278443&ev=PageView&noscript=1" alt="">
   </noscript>
   <!-- End Meta Pixel Code -->
 
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <style>
     *,
@@ -38,14 +49,18 @@
     }
 
     :root {
-      --emerald: #0b7a56;
-      --emerald-deep: #065f46;
-      --emerald-soft: #d1fae5;
-      --gold: #c9a44a;
-      --gold-bright: #e8d48b;
-      --gold-deep: #9a7420;
-      --ink: #14352c;
-      --muted: #4d6b61;
+      --bg-page: #f6f8fa;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --primary-blue: #2563eb;
+      --primary-blue-hover: #1d4ed8;
+      --primary-blue-light: #eff6ff;
+      --success-green: #10b981;
+      --success-green-light: #ecfdf5;
+      --border-color: #f1f5f9;
+      --radius-card: 24px;
     }
 
     body {
@@ -53,632 +68,665 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #1a3a32;
-      color: var(--ink);
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      padding: 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .bg-video {
-      position: fixed;
-      inset: 0;
+    /* Outer Wrapper for responsive alignment */
+    .container {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      pointer-events: none;
+      max-width: 390px;
+      display: flex;
+      justify-content: center;
     }
 
-    .bg-overlay {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 42%, rgba(0, 20, 16, 0.08) 0%, rgba(0, 18, 14, 0.38) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
-
+    /* Main White Card */
     .card {
       position: relative;
-      z-index: 2;
       width: 100%;
-      max-width: 400px;
-      padding: 2px;
-      border-radius: 28px;
-      background: linear-gradient(160deg, rgba(232, 212, 139, 0.85) 0%, rgba(11, 122, 86, 0.55) 48%, rgba(201, 164, 74, 0.8) 100%);
+      background: var(--card-bg);
+      border-radius: var(--radius-card);
       box-shadow:
-        0 24px 60px rgba(6, 40, 30, 0.38),
-        0 0 0 1px rgba(255, 255, 255, 0.25),
-        0 0 48px rgba(11, 122, 86, 0.18);
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 28px;
-      padding: 2px;
-      background: linear-gradient(160deg, #f3e6b4, transparent 40%, transparent 60%, #d4af37);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      opacity: 0.7;
-    }
-
-    .card-face {
-      position: relative;
-      border-radius: 26px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(248, 252, 249, 0.78) 100%);
-      backdrop-filter: blur(28px) saturate(1.35);
-      -webkit-backdrop-filter: blur(28px) saturate(1.35);
-      padding: 32px 28px 28px;
-      overflow: hidden;
-    }
-
-    .card-face::after {
-      content: "";
-      position: absolute;
-      top: -80px;
-      left: 50%;
-      width: 220px;
-      height: 220px;
-      margin-left: -110px;
-      background: radial-gradient(circle, rgba(11, 122, 86, 0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      position: relative;
-      z-index: 1;
+        0 4px 6px -1px rgba(0, 0, 0, 0.03),
+        0 12px 28px -4px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(0, 0, 0, 0.04);
+      padding: 40px 26px 36px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 22px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
+      text-align: center;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    .eyebrow::before,
-    .eyebrow::after {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold));
-    }
-
-    .eyebrow::after {
-      background: linear-gradient(90deg, var(--gold), transparent);
-    }
-
-    .card-inner {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      min-height: 320px;
-    }
-
-    /* --- Loading --- */
-    .loading-wrap {
+    /* Loading Stage Container */
+    .loading-stage {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.35s ease, transform 0.35s ease;
     }
 
-    .loading-wrap.hide {
+    .loading-stage.hide {
       opacity: 0;
-      transform: scale(0.97);
+      transform: scale(0.96);
       pointer-events: none;
       position: absolute;
-      inset: 0;
       visibility: hidden;
     }
 
-    .scan-stage {
+    /* Circular Spinner matching user reference image */
+    .spinner-wrap {
       position: relative;
-      width: 148px;
-      height: 148px;
-      margin-bottom: 8px;
-      flex-shrink: 0;
+      width: 78px;
+      height: 78px;
+      margin-bottom: 24px;
     }
 
-    .ring {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .ring-outer {
-      border: 1px solid rgba(201, 164, 74, 0.35);
-      box-shadow: 0 0 0 8px rgba(11, 122, 86, 0.05);
-      animation: pulse-ring 2.4s ease-in-out infinite;
-    }
-
-    .ring-mid {
-      inset: 14px;
-      border: 1px dashed rgba(11, 122, 86, 0.28);
-      animation: spin 18s linear infinite;
-    }
-
-    .scan-svg {
-      position: absolute;
-      inset: 0;
+    .spinner-svg {
       width: 100%;
       height: 100%;
-    }
-
-    .scan-track {
-      fill: none;
-      stroke: rgba(11, 122, 86, 0.12);
-      stroke-width: 4;
-    }
-
-    .scan-progress {
-      fill: none;
-      stroke: url(#goldGreen);
-      stroke-width: 4.5;
-      stroke-linecap: round;
-      stroke-dasharray: 314;
-      stroke-dashoffset: 314;
       transform: rotate(-90deg);
-      transform-origin: 80px 80px;
-      animation: fill-ring 8s linear forwards;
-      filter: drop-shadow(0 0 6px rgba(201, 164, 74, 0.55));
     }
 
-    .device-core {
+    .spinner-bg {
+      fill: none;
+      stroke: #e2e8f0;
+      stroke-width: 6;
+    }
+
+    .spinner-bar {
+      fill: none;
+      stroke: var(--primary-blue);
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 201;
+      /* 2 * PI * 32 */
+      stroke-dashoffset: 201;
+      transition: stroke-dashoffset 0.08s linear;
+    }
+
+    /* Percentage in spinner center */
+    .spinner-percent {
       position: absolute;
-      inset: 38px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 40% 32%, #ffffff 0%, #edf8f3 55%, #d8efe4 100%);
+      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.9),
-        0 8px 20px rgba(11, 122, 86, 0.18);
-    }
-
-    .device-core svg {
-      width: 34px;
-      height: 34px;
-    }
-
-    .scan-beam {
-      position: absolute;
-      left: 44px;
-      right: 44px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #e8d48b, #0b7a56, #e8d48b, transparent);
-      box-shadow: 0 0 10px rgba(232, 212, 139, 0.8);
-      animation: beam 2.2s ease-in-out infinite;
-      border-radius: 2px;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .pct {
-      margin-top: 4px;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 28px;
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--emerald-deep);
-      line-height: 1;
+      color: var(--primary-blue);
+      letter-spacing: -0.02em;
     }
 
-    .pct-unit {
-      font-family: "Outfit", sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--gold-deep);
-      margin-left: 2px;
-      vertical-align: super;
+    /* Main Title */
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
     }
 
-    .loading-text {
-      margin: 10px 0 18px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-      min-height: 20px;
+    /* Subtitle */
+    .card-subtitle {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-width: 290px;
+      margin-bottom: 24px;
     }
 
-    .checks {
+    /* Step Checklist Box */
+    .steps-container {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 9px;
+      margin-top: 4px;
     }
 
-    .check-row {
+    .step-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+
+    .step-left {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.55);
-      border: 1px solid rgba(11, 122, 86, 0.08);
-      font-size: 13px;
-      font-weight: 500;
-      color: #8aa399;
-      transition: color 0.35s ease, background 0.35s ease, border-color 0.35s ease;
     }
 
-    .check-row.done {
-      color: var(--emerald-deep);
-      background: rgba(209, 250, 229, 0.45);
-      border-color: rgba(11, 122, 86, 0.16);
-    }
-
-    .check-row.active {
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.8);
-      border-color: rgba(201, 164, 74, 0.4);
-    }
-
-    .dot {
-      width: 18px;
-      height: 18px;
+    .step-icon-wrap {
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      flex-shrink: 0;
+      background: #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1.5px solid #c5d5ce;
-      background: #fff;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
     }
 
-    .check-row.active .dot {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201, 164, 74, 0.18);
+    .step-icon-wrap svg {
+      width: 12px;
+      height: 12px;
+      display: none;
     }
 
-    .check-row.active .dot::after {
-      content: "";
+    /* Step States */
+    .step-item.active {
+      color: var(--text-main);
+      background: var(--primary-blue-light);
+      border-color: #bfdbfe;
+    }
+
+    .step-item.active .step-icon-wrap {
+      background: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+      animation: pulse 1.4s infinite;
+    }
+
+    .step-item.active .step-icon-wrap::after {
+      content: '';
       width: 7px;
       height: 7px;
+      background: #ffffff;
       border-radius: 50%;
-      background: var(--gold);
-      animation: blink 1s ease-in-out infinite;
     }
 
-    .check-row.done .dot {
-      border-color: var(--emerald);
-      background: var(--emerald);
+    .step-item.done {
+      color: #065f46;
+      background: var(--success-green-light);
+      border-color: #a7f3d0;
     }
 
-    .check-row.done .dot svg {
+    .step-item.done .step-icon-wrap {
+      background: var(--success-green);
+    }
+
+    .step-item.done .step-icon-wrap svg {
       display: block;
+      stroke: #ffffff;
     }
 
-    .dot svg {
-      display: none;
-      width: 10px;
-      height: 10px;
-    }
-
-    /* --- Result --- */
-    .result-wrap {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(14px);
-      pointer-events: none;
-      transition: opacity 0.5s ease 0.08s, transform 0.5s ease 0.08s;
-    }
-
-    .result-wrap.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .seal {
-      position: relative;
-      width: 92px;
-      height: 92px;
-      margin-bottom: 18px;
-      animation: pop 0.5s cubic-bezier(0.22, 1.2, 0.36, 1);
-    }
-
-    .seal-ring {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      box-shadow: 0 0 0 6px rgba(201, 164, 74, 0.12), 0 0 24px rgba(11, 122, 86, 0.2);
-    }
-
-    .seal-core {
-      position: absolute;
-      inset: 10px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #0f9a68 0%, #06704d 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
-    }
-
-    .seal-core svg {
-      width: 36px;
-      height: 36px;
-    }
-
-    .tick-path {
-      stroke: #fff;
-      stroke-width: 2.4;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 28;
-      stroke-dashoffset: 28;
-      animation: draw 0.5s ease 0.22s forwards;
-    }
-
-    .status-kicker {
+    .step-status-tag {
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-      margin-bottom: 8px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-light);
     }
 
-    .status-text {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 26px;
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--emerald-deep);
-      max-width: 280px;
+    .step-item.active .step-status-tag {
+      color: var(--primary-blue);
+      background: #dbeafe;
     }
 
-    .status-sub {
-      margin-top: 8px;
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--muted);
-      line-height: 1.5;
-      max-width: 260px;
+    .step-item.done .step-status-tag {
+      color: #047857;
+      background: #d1fae5;
     }
 
-    .btn-register {
-      display: inline-flex;
+    /* Result Stage (After 8s) */
+    .result-stage {
+      width: 100%;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .result-stage.show {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Success Icon */
+    .success-icon-wrap {
+      position: relative;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow:
+        0 10px 25px -4px rgba(16, 185, 129, 0.4),
+        0 0 0 6px rgba(16, 185, 129, 0.12);
+      margin-bottom: 20px;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .success-icon-wrap svg {
+      width: 38px;
+      height: 38px;
+      stroke: #ffffff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .badge-success {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #047857;
+      background: #d1fae5;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .result-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .result-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      max-width: 290px;
+      margin-bottom: 28px;
+    }
+
+    /* CTA Button: ĐĂNG KÝ NGAY */
+    .btn-submit {
       width: 100%;
-      max-width: 280px;
-      margin-top: 22px;
-      padding: 15px 28px;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
       font-family: inherit;
       font-size: 15px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #fff;
-      background: linear-gradient(180deg, #1aa36f 0%, #0b7a56 100%);
-      border: 1px solid rgba(232, 212, 139, 0.45);
-      border-radius: 14px;
-      cursor: pointer;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       box-shadow:
-        0 8px 22px rgba(11, 122, 86, 0.38),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        0 10px 20px -3px rgba(37, 99, 235, 0.4),
+        0 4px 6px -2px rgba(37, 99, 235, 0.2);
+      transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .btn-register:hover {
+    .btn-submit:hover {
       transform: translateY(-2px);
-      filter: brightness(1.05);
       box-shadow:
-        0 12px 28px rgba(11, 122, 86, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+        0 14px 26px -3px rgba(37, 99, 235, 0.5),
+        0 6px 10px -2px rgba(37, 99, 235, 0.25);
     }
 
-    .btn-register:active {
+    .btn-submit:active {
       transform: translateY(0);
+      box-shadow:
+        0 6px 14px -2px rgba(37, 99, 235, 0.35);
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    .btn-submit svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
     }
 
-    @keyframes fill-ring {
-      to { stroke-dashoffset: 0; }
+    .btn-submit:hover svg {
+      transform: translateX(3px);
     }
 
-    @keyframes pulse-ring {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.03); opacity: 0.7; }
+    /* Keyframe Animations */
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.75;
+        transform: scale(1.06);
+      }
     }
 
-    @keyframes beam {
-      0%   { top: 48px; opacity: 0; }
-      12%  { opacity: 1; }
-      88%  { opacity: 1; }
-      100% { top: 98px; opacity: 0; }
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+
+      70% {
+        transform: scale(1.08);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.35; }
-    }
+    /* Mobile fine-tuning */
+    @media (max-width: 380px) {
+      .card {
+        padding: 32px 18px 28px;
+      }
 
-    @keyframes pop {
-      0%   { transform: scale(0.55); opacity: 0; }
-      70%  { transform: scale(1.08); }
-      100% { transform: scale(1); opacity: 1; }
-    }
+      .card-title {
+        font-size: 18px;
+      }
 
-    @keyframes draw {
-      to { stroke-dashoffset: 0; }
-    }
-
-    @media (max-width: 420px) {
-      .card-face { padding: 28px 20px 22px; }
-      .status-text { font-size: 22px; }
+      .result-title {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<img class="bg-video" src="image_2026-09-07_11-38-11.png" alt="">
-  <div class="bg-overlay"></div>
+  <div class="container">
+    <div class="card">
 
-  <div class="card">
-    <div class="card-face">
-      <p class="eyebrow">Sự kiện độc quyền</p>
-      <div class="card-inner">
+      <!-- ===================================== -->
+      <!-- GIAI ĐOẠN 1: QUAY QUÉT & KIỂM TRA     -->
+      <!-- ===================================== -->
+      <div class="loading-stage" id="loadingStage">
 
-        <div class="loading-wrap" id="loading">
-          <div class="scan-stage">
-            <div class="ring ring-outer"></div>
-            <div class="ring ring-mid"></div>
-            <svg class="scan-svg" viewBox="0 0 160 160" aria-hidden="true">
-              <defs>
-                <linearGradient id="goldGreen" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#0b7a56"/>
-                  <stop offset="50%" stop-color="#d4af37"/>
-                  <stop offset="100%" stop-color="#0b7a56"/>
-                </linearGradient>
-              </defs>
-              <circle class="scan-track" cx="80" cy="80" r="50"/>
-              <circle class="scan-progress" cx="80" cy="80" r="50"/>
-            </svg>
-            <div class="scan-beam"></div>
-            <div class="device-core">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="7" y="2" width="10" height="20" rx="2.2" stroke="#0b7a56" stroke-width="1.6"/>
-                <line x1="10" y1="18.2" x2="14" y2="18.2" stroke="#c9a44a" stroke-width="1.6" stroke-linecap="round"/>
-                <circle cx="12" cy="5.6" r="0.7" fill="#c9a44a"/>
-              </svg>
-            </div>
-          </div>
-
-          <p class="pct"><span id="pctNum">0</span><span class="pct-unit">%</span></p>
-          <p class="loading-text" id="loadingText">Đang kết nối thiết bị…</p>
-
-          <div class="checks" id="checks">
-            <div class="check-row active" data-step="0">
-              <span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.4 2.4 4.6-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Hệ điều hành
-            </div>
-            <div class="check-row" data-step="1">
-              <span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.4 2.4 4.6-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Kết nối mạng
-            </div>
-            <div class="check-row" data-step="2">
-              <span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.4 2.4 4.6-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Bảo mật thiết bị
-            </div>
-            <div class="check-row" data-step="3">
-              <span class="dot"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.4 2.4 4.6-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              Điều kiện tham gia
-            </div>
-          </div>
+        <!-- Vòng xoay tiến trình theo mẫu ảnh -->
+        <div class="spinner-wrap">
+          <svg class="spinner-svg" viewBox="0 0 76 76" aria-hidden="true">
+            <circle class="spinner-bg" cx="38" cy="38" r="32" />
+            <circle class="spinner-bar" id="spinnerBar" cx="38" cy="38" r="32" />
+          </svg>
+          <div class="spinner-percent" id="percentText">0%</div>
         </div>
 
-        <div class="result-wrap" id="result">
-          <div class="seal">
-            <div class="seal-ring"></div>
-            <div class="seal-core">
-              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                <path d="M24 6L10 12v12c0 8.8 6.2 16.8 14 19.4C32.8 40.8 39 32.8 39 24V12L24 6z" stroke="#e8d48b" stroke-width="1.6" fill="none"/>
-                <path class="tick-path" d="M17 24.5l5 5 9.5-10.5"/>
-              </svg>
+        <!-- Tiêu đề chính giống mẫu ảnh -->
+        <h1 class="card-title" id="mainTitle">Đang kiểm tra kết nối...</h1>
+        <p class="card-subtitle" id="subTitle">Hệ thống đang xác minh kết nối của bạn,<br>vui lòng chờ trong giây lát.
+        </p>
+
+        <!-- Danh sách các bước kiểm tra (Nội dung quay quay) -->
+        <div class="steps-container" id="stepsContainer">
+
+          <div class="step-item active" id="step-0">
+            <div class="step-left">
+              <span class="step-icon-wrap">
+                <svg viewBox="0 0 12 12">
+                  <path d="M2.5 6.2l2.4 2.4 4.6-5" stroke-width="2" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span>Hệ điều hành</span>
             </div>
+            <span class="step-status-tag" id="status-tag-0">Đang quét</span>
           </div>
-          <p class="status-kicker">Xác nhận thành công</p>
-          <p class="status-text">Thiết bị đủ điều kiện</p>
-          <p class="status-sub">Bạn đã được xác nhận tham gia sự kiện. Đăng ký ngay để giữ suất.</p>
-          <a href="https://www.yg8ads02.xyz/?ch=55257ac96d" class="btn-register" id="btnRegister">ĐĂNG KÝ NGAY</a>
+
+          <div class="step-item" id="step-1">
+            <div class="step-left">
+              <span class="step-icon-wrap">
+                <svg viewBox="0 0 12 12">
+                  <path d="M2.5 6.2l2.4 2.4 4.6-5" stroke-width="2" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span>Kết nối mạng</span>
+            </div>
+            <span class="step-status-tag" id="status-tag-1">Chờ xử lý</span>
+          </div>
+
+          <div class="step-item" id="step-2">
+            <div class="step-left">
+              <span class="step-icon-wrap">
+                <svg viewBox="0 0 12 12">
+                  <path d="M2.5 6.2l2.4 2.4 4.6-5" stroke-width="2" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span>Bảo mật thiết bị</span>
+            </div>
+            <span class="step-status-tag" id="status-tag-2">Chờ xử lý</span>
+          </div>
+
+          <div class="step-item" id="step-3">
+            <div class="step-left">
+              <span class="step-icon-wrap">
+                <svg viewBox="0 0 12 12">
+                  <path d="M2.5 6.2l2.4 2.4 4.6-5" stroke-width="2" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span>Điều kiện tham gia</span>
+            </div>
+            <span class="step-status-tag" id="status-tag-3">Chờ xử lý</span>
+          </div>
+
         </div>
 
       </div>
+
+      <!-- ===================================== -->
+      <!-- GIAI ĐOẠN 2: KẾT QUẢ & NÚT ĐĂNG KÝ    -->
+      <!-- ===================================== -->
+      <div class="result-stage" id="resultStage">
+
+        <div class="success-icon-wrap">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+
+        <span class="badge-success">Xác nhận thành công</span>
+        <h2 class="result-title">Thiết bị đủ điều kiện</h2>
+        <p class="result-desc">Hệ thống đã xác nhận thiết bị của bạn hợp lệ. Hãy bấm đăng ký ngay để tham gia.</p>
+
+        <!-- Nút ĐĂNG KÝ NGAY chuyển hướng -->
+        <a href="https://www.dxbyg88.sbs/?tid=93745&affiliateCode=ads001&fbPixelId=1523890579540019" class="btn-submit" id="btnRegister">
+          <span>ĐĂNG KÝ NGAY</span>
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+
     </div>
   </div>
 
   <script>
-    const LOADING_TIME = 8000;
-    const REGISTER_URL = 'https://www.yg8ads02.xyz/?ch=55257ac96d';
+    // ==========================================================
+    // ⚙️ PHẦN CẤU HÌNH (BẠN CÓ THỂ DỄ DÀNG CHỈNH SỬA TẠI ĐÂY)
+    // ==========================================================
+    const CONFIG = {
+      // 1. Thời gian quay kiểm tra (tính bằng mili-giây, mặc định 8000ms = 8s)
+      loadingDuration: 8000,
 
-    var labels = [
-      'Đang kiểm tra hệ điều hành…',
-      'Đang kiểm tra kết nối mạng…',
-      'Đang quét bảo mật thiết bị…',
-      'Đang đối chiếu điều kiện tham gia…'
-    ];
-    var rows = document.querySelectorAll('.check-row');
-    var loadingText = document.getElementById('loadingText');
-    var pctNum = document.getElementById('pctNum');
-    var started = Date.now();
+      // 2. Link chuyển hướng chính khi nhấn nút "ĐĂNG KÝ NGAY" (Link bạn sẽ gửi sau)
+      redirectUrl: 'https://www.dxbyg88.sbs/?tid=93745&affiliateCode=ads001&fbPixelId=1523890579540019',
 
-    var stepTimes = [0, 1800, 3800, 5800];
-    stepTimes.forEach(function (t, i) {
-      setTimeout(function () {
-        rows.forEach(function (row, idx) {
-          row.classList.remove('active');
-          if (idx < i) row.classList.add('done');
-          else if (idx === i) row.classList.add('active');
+      // 3. Tự động chuyển tiếp tham số UTM / fbclid từ URL gốc sang link đích
+      forwardQueryParams: true,
+
+      // 4. Danh sách text thông báo theo từng bước
+      stepLabels: [
+        'Đang kiểm tra hệ điều hành…',
+        'Đang kiểm tra kết nối mạng…',
+        'Đang quét bảo mật thiết bị…',
+        'Đang đối chiếu điều kiện tham gia…'
+      ],
+
+      // 5. Icon Favicon SVG
+      favicons: {
+        scanning: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'%3E%3Cpath d='M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z'/%3E%3C/svg%3E",
+        success: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'%3E%3Cpath d='M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1 14.5l-4-4 1.41-1.41L11 13.67l6.59-6.59L19 8.5l-8 8z'/%3E%3C/svg%3E"
+      }
+    };
+
+    // Hàm chuyển tiếp tham số URL (UTM, fbclid, gclid,...)
+    function buildDestinationUrl(baseUrl) {
+      if (!baseUrl || baseUrl === '#' || !CONFIG.forwardQueryParams) return baseUrl;
+      try {
+        const url = new URL(baseUrl, window.location.href);
+        const currentParams = new URLSearchParams(window.location.search);
+        currentParams.forEach((val, key) => {
+          if (!url.searchParams.has(key)) {
+            url.searchParams.set(key, val);
+          }
         });
-        loadingText.textContent = labels[i];
-      }, t);
-    });
+        return url.toString();
+      } catch (e) {
+        return baseUrl;
+      }
+    }
 
-    var tick = setInterval(function () {
-      var p = Math.min(100, Math.round(((Date.now() - started) / LOADING_TIME) * 100));
-      pctNum.textContent = p;
-      if (p >= 100) clearInterval(tick);
-    }, 50);
+    // ==========================================================
+    // LOGIC ĐIỀU KHIỂN TIẾN TRÌNH QUAY & XÁC MINH
+    // ==========================================================
+    document.addEventListener('DOMContentLoaded', function () {
+      const spinnerBar = document.getElementById('spinnerBar');
+      const percentText = document.getElementById('percentText');
+      const subTitle = document.getElementById('subTitle');
+      const loadingStage = document.getElementById('loadingStage');
+      const resultStage = document.getElementById('resultStage');
+      const btnRegister = document.getElementById('btnRegister');
+      const dynamicFavicon = document.getElementById('dynamicFavicon');
 
-    setTimeout(function () {
-      rows.forEach(function (row) {
-        row.classList.remove('active');
-        row.classList.add('done');
+      const targetUrl = buildDestinationUrl(CONFIG.redirectUrl || btnRegister.getAttribute('href'));
+      btnRegister.setAttribute('href', targetUrl);
+
+      const circumference = 2 * Math.PI * 32; // ~201.06px
+      const totalTime = CONFIG.loadingDuration;
+      const startTime = Date.now();
+      const numSteps = 4;
+      const stepDuration = totalTime / numSteps;
+
+      // Animation loop mượt mà cho vòng quay và %
+      const progressTimer = setInterval(function () {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(1, elapsed / totalTime);
+        const percent = Math.floor(progress * 100);
+
+        // Cập nhật offset vòng tròn SVG & %
+        const offset = circumference - (progress * circumference);
+        spinnerBar.style.strokeDashoffset = offset;
+        percentText.textContent = percent + '%';
+
+        // Cập nhật Tab Title động theo tiến độ
+        document.title = '⏳ Đang kiểm tra kết nối... (' + percent + '%)';
+
+        // Cập nhật trạng thái từng bước kiểm tra
+        const currentStep = Math.min(numSteps - 1, Math.floor(elapsed / stepDuration));
+
+        for (let i = 0; i < numSteps; i++) {
+          const row = document.getElementById('step-' + i);
+          const tag = document.getElementById('status-tag-' + i);
+          if (!row || !tag) continue;
+
+          if (i < currentStep) {
+            row.className = 'step-item done';
+            tag.textContent = 'Hoàn tất';
+          } else if (i === currentStep) {
+            row.className = 'step-item active';
+            tag.textContent = 'Đang quét';
+            if (CONFIG.stepLabels[i]) {
+              subTitle.textContent = CONFIG.stepLabels[i];
+            }
+          } else {
+            row.className = 'step-item';
+            tag.textContent = 'Chờ xử lý';
+          }
+        }
+
+        // Khi hoàn thành 100%
+        if (progress >= 1) {
+          clearInterval(progressTimer);
+
+          // Cập nhật Title và Favicon sang trạng thái hoàn tất thành công
+          document.title = '✅ Xác nhận thành công!';
+          if (dynamicFavicon && CONFIG.favicons.success) {
+            dynamicFavicon.setAttribute('href', CONFIG.favicons.success);
+          }
+
+          // Đánh dấu tất cả hoàn tất
+          for (let i = 0; i < numSteps; i++) {
+            const row = document.getElementById('step-' + i);
+            const tag = document.getElementById('status-tag-' + i);
+            if (row) row.className = 'step-item done';
+            if (tag) tag.textContent = 'Hoàn tất';
+          }
+
+          // Chuyển sang màn hình nút ĐĂNG KÝ NGAY
+          setTimeout(function () {
+            loadingStage.classList.add('hide');
+            resultStage.classList.add('show');
+          }, 350);
+        }
+      }, 50);
+
+      // Xử lý sự kiện click nút "ĐĂNG KÝ NGAY"
+      btnRegister.addEventListener('click', function (e) {
+        e.preventDefault();
+        const destination = buildDestinationUrl(CONFIG.redirectUrl || this.getAttribute('href'));
+        let redirected = false;
+
+        function navigate() {
+          if (!redirected && destination && destination !== '#') {
+            redirected = true;
+            window.location.href = destination;
+          }
+        }
+
+        // Kích hoạt Meta Pixel Lead event nếu có
+        if (typeof fbq === 'function') {
+          try {
+            fbq('track', 'Lead', {}, { eventCallback: navigate });
+          } catch (err) {
+            navigate();
+          }
+        }
+
+        // Fallback chuyển hướng sau tối đa 400ms nếu event callback bị chặn
+        setTimeout(navigate, 400);
       });
-      pctNum.textContent = '100';
-      document.getElementById('loading').classList.add('hide');
-      document.getElementById('result').classList.add('show');
-    }, LOADING_TIME);
-
-    document.getElementById('btnRegister').addEventListener('click', function (e) {
-      e.preventDefault();
-      var url = this.getAttribute('href') || REGISTER_URL;
-      var redirected = false;
-
-      function goRegister() {
-        if (redirected || !url || url === '#') return;
-        redirected = true;
-        window.location.href = url;
-      }
-
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead', {}, { eventCallback: goRegister });
-      }
-
-      setTimeout(goRegister, 500);
     });
   </script>
 
 </body>
+
 </html>
